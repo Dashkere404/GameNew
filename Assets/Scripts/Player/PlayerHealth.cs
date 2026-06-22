@@ -116,8 +116,13 @@ public class PlayerHealth : MonoBehaviour
         isInvulnerable = false;
     }
 
-    private void Die()
+    public void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         isDead = true;
         TriggerAnimator("Death");
         OnDied?.Invoke();
