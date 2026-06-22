@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 // HUD во время игры: полоска HP, счёт очков и жизни.
 // HP обновляется через событие PlayerHealth.OnHealthChanged.
@@ -17,12 +18,24 @@ public class HUD : MonoBehaviour
 
     [Header("Жизни (опционально)")]
     public TextMeshProUGUI livesText;
-    private int lives = 3;
 
     private PlayerHealth playerHealth;
 
-    void Start()
+    public void SetLives(int newLives)
     {
+        if (livesText != null)
+            livesText.text = "Жизни: " + newLives;
+    }
+
+    void OnEnable()
+    {
+        StartCoroutine(Init());
+    }
+
+    IEnumerator Init()
+    {
+        yield return new WaitForSeconds(0.05f);
+
         playerHealth = FindFirstObjectByType<PlayerHealth>();
 
         if (playerHealth != null)
@@ -30,9 +43,14 @@ public class HUD : MonoBehaviour
             playerHealth.OnHealthChanged += UpdateHealthBar;
             UpdateHealthBar(playerHealth.CurrentHealth, playerHealth.MaxHealth);
         }
+    }
 
-        UpdateScoreText();
-        UpdateLivesText();
+    void OnDisable()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.OnHealthChanged -= UpdateHealthBar;
+        }
     }
 
     void OnDestroy()
@@ -45,6 +63,9 @@ public class HUD : MonoBehaviour
 
     void UpdateHealthBar(int current, int max)
     {
+        Debug.Log($"HUD HP update: {current}/{max}");
+        Debug.Log("FILL = " + healthBarFill.fillAmount);
+
         if (healthBarFill != null)
         {
             healthBarFill.fillAmount = (float)current / max;
@@ -64,25 +85,11 @@ public class HUD : MonoBehaviour
         UpdateScoreText();
     }
 
-    public void SetLives(int newLives)
-    {
-        lives = newLives;
-        UpdateLivesText();
-    }
-
     void UpdateScoreText()
     {
         if (scoreText != null)
         {
             scoreText.text = "Очки: " + score;
-        }
-    }
-
-    void UpdateLivesText()
-    {
-        if (livesText != null)
-        {
-            livesText.text = "Жизни: " + lives;
         }
     }
 }

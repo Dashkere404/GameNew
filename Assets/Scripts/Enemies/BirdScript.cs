@@ -8,7 +8,7 @@ public class BirdScript : MonoBehaviour
     public float patrolSpeed = 2f;
 
     [Header("Damage settings")]
-    public int damage = 30;
+    public int damage = 20;
 
     [Header("Bounce force settings")]
     public float bounceForce = 7f;

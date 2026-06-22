@@ -2,7 +2,7 @@
 
 public class FireScript : MonoBehaviour
 {
-    public int damage = 30;
+    public int damage = 40;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

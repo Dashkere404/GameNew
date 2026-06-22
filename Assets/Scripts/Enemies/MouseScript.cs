@@ -8,7 +8,7 @@ public class MouseScript : MonoBehaviour
     public float patrolSpeed = 2f;
 
     [Header("Damage settings")]
-    public int damage = 30;
+    public int damage = 15;
 
     [Header("Bounce force settings")]
     public float bounceForce = 6f;

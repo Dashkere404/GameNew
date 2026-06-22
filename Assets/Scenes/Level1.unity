@@ -647,8 +647,8 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -11.29, y: -4.86, z: -10}
+  m_LocalScale: {x: 10.710752, y: 3.1883168, z: 2.214109}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1372,6 +1372,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990501592}
   m_CullTransparentMesh: 1
+--- !u!1 &1003070591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003070593}
+  - component: {fileID: 1003070592}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1003070592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003070591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998526fff6326f148a3b46e6a09fb2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  lives: 3
+  maxLives: 3
+  currentLevel: 
+  hud: {fileID: 0}
+--- !u!4 &1003070593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003070591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1048715061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1951,7 @@ GameObject:
   - component: {fileID: 1344849068}
   - component: {fileID: 1344849067}
   - component: {fileID: 1344849069}
+  - component: {fileID: 1344849070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2105,11 +2155,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7547b95e1fd724ffe8129f4ad624b272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 5
-  currentHealth: 0
+  maxHealth: 100
+  currentHealth: 100
   invulnerabilityDuration: 1
   flashInterval: 0.1
   deathDisableDelay: 0.5
+--- !u!114 &1344849070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344849062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35c9736554804228a9179f6a03a0e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 8
+  upwardForce: 4
+  controlLockDuration: 0.2
 --- !u!1 &1387771889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2454,7 @@ MonoBehaviour:
   patrolSpeed: 2
   detectionRange: 5
   chaseSpeed: 5
-  damage: 30
+  damage: 25
   bounceForce: 3
   attackCooldown: 0.5
 --- !u!61 &1605289559
@@ -3308,7 +3373,7 @@ MonoBehaviour:
   patrolSpeed: 2
   detectionRange: 5
   chaseSpeed: 5
-  damage: 30
+  damage: 25
   bounceForce: 3
   attackCooldown: 0.5
 --- !u!61 &1880201498
@@ -3559,7 +3624,7 @@ MonoBehaviour:
   pointA: {fileID: 983424157}
   pointB: {fileID: 602551928}
   patrolSpeed: 2
-  damage: 5
+  damage: 15
   bounceForce: 3
 --- !u!95 &1949675957
 Animator:
@@ -3990,7 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a032894936924d4bb22f2f0ae7aa1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireScript
-  damage: 30
+  damage: 40
 --- !u!212 &2104251650
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4135,3 +4200,4 @@ SceneRoots:
   - {fileID: 813578483}
   - {fileID: 1615727363}
   - {fileID: 1431068395}
+  - {fileID: 1003070593}

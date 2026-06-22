@@ -13,7 +13,7 @@ public class DogAiScript : MonoBehaviour
     public float chaseSpeed = 5f;        
 
     [Header("Damage settings")]
-    public int damage = 30;
+    public int damage = 25;
 
     [Header("Bounce force settings")]
     public float bounceForce = 3f;
