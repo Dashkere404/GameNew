@@ -126,6 +126,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         TriggerAnimator("Death");
         OnDied?.Invoke();
+        GameManager.Instance.LoseLife();
 
         if (movement != null)
         {

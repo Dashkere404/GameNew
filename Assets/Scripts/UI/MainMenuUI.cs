@@ -7,6 +7,11 @@ public class MainMenuUI : MonoBehaviour
     // Вызывается кнопкой "ИГРАТЬ"
     public void PlayGame()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.StartGame();
+        }
+
         if (SceneTransition.Instance != null)
         {
             SceneTransition.Instance.LoadScene(UIScenes.Level1);

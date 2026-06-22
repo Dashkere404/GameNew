@@ -18,6 +18,8 @@ public class GameOverUI : MonoBehaviour
     // Вызывается кнопкой "Заново"
     public void RestartLevel()
     {
+        GameManager.Instance.ResetLives();
+
         string levelName = !string.IsNullOrEmpty(pendingLevelName) ? pendingLevelName : UIScenes.Level1;
 
         if (SceneTransition.Instance != null)
