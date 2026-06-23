@@ -14,7 +14,6 @@ public class HUD : MonoBehaviour
 
     [Header("Счёт")]
     public TextMeshProUGUI scoreText;
-    private int score = 0;
 
     [Header("Жизни (опционально)")]
     public TextMeshProUGUI livesText;
@@ -72,24 +71,9 @@ public class HUD : MonoBehaviour
         }
     }
 
-    // Вызывается из GameManager, когда счёт меняется
     public void SetScore(int newScore)
     {
-        score = newScore;
-        UpdateScoreText();
-    }
-
-    public void AddScore(int amount)
-    {
-        score += amount;
-        UpdateScoreText();
-    }
-
-    void UpdateScoreText()
-    {
         if (scoreText != null)
-        {
-            scoreText.text = "Очки: " + score;
-        }
+            scoreText.text = "Очки: " + newScore;
     }
 }

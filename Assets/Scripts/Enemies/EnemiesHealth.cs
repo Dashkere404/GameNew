@@ -12,7 +12,7 @@ public class EnemiesHealth : MonoBehaviour
     private bool isInvincible = false;
 
     [Header("Score settings")]
-    public int pointsOnDeath = 100;
+    public int pointsOnDeath = 10;
 
     private SpriteRenderer sprite;
     private bool killedByPlayer = false;
@@ -73,7 +73,7 @@ public class EnemiesHealth : MonoBehaviour
         if (killedByPlayer && ScoreManager.Instance != null)
         {
             ScoreManager.Instance.AddPoints(pointsOnDeath);
-            Debug.Log($"{gameObject.name} is killed by PLAYER! +{pointsOnDeath} points");
+            Debug.Log("+" + pointsOnDeath + " points");
         }
         else
         {

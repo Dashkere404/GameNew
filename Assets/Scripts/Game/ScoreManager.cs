@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get; private set; }
 
     private int score = 0;
+    public TextMeshProUGUI scoreText;
     private HUD hud;
 
     private void Awake()
@@ -26,12 +28,12 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoints(int points)
     {
+        Debug.Log("ScoreManager получил: " + points);
+
         score += points;
 
-        if (hud != null)
-        {
-            hud.SetScore(score);
-        }
+        if (scoreText != null)
+            scoreText.text = "Очки: " + score;
     }
 
     public void ResetScore()
